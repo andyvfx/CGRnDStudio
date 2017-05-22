@@ -7,6 +7,7 @@ Copyright (c) 2017 CGRnDStudio.
 Create pivot curve from surface
 Author: andy
 WeChat: CGRnDStudio
+E-mail: andyvfxtd@gmail.com
 Last edited: May 2017
 """
 
