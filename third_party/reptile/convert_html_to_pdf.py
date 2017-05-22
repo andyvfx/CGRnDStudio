@@ -33,10 +33,21 @@ html_template = """
 
 
 def response(url):
+    """
+    requests url
+    :param url: web page
+    :return: web data
+    """
     return requests.get(url)
 
 
 def parse_menu(res_, main_url):
+    """
+    yield url list
+    :param res_: main web page requests
+    :param main_url: main web page
+    :return: None
+    """
     soup = BeautifulSoup(res_.content, "html.parser")
     menu = soup.find_all(class_="uk-nav uk-nav-side")[1]
 
@@ -49,7 +60,12 @@ def parse_menu(res_, main_url):
 
 
 def parse_body(res_, main_url):
-
+    """
+    analyze url body data
+    :param res_: web page requests
+    :param main_url: main web page
+    :return: html data
+    """
     soup = BeautifulSoup(res_.content, "html.parser")
     body = soup.find_all(class_="x-wiki-content")[0]
     title = soup.find("h4").get_text()
@@ -75,6 +91,11 @@ def parse_body(res_, main_url):
 
 
 def domain(url):
+    """
+    http://www.liaoxuefeng.com
+    :param url: main web page
+    :return: address
+    """
     return "{uri.scheme}://{uri.netloc}".format(uri=urlparse(url))
 
 if __name__ == "__main__":

@@ -15,6 +15,11 @@ import pymel.core as pm
 
 
 def center_pivot_pos(circles):
+    """
+    selected object center position
+    :param circles: selected object
+    :return: vector
+    """
     bbx = pm.xform(circles, q=True, bb=True, ws=True)
     cx = (bbx[0] + bbx[3]) / 2.0
     cy = (bbx[1] + bbx[4]) / 2.0
@@ -24,6 +29,10 @@ def center_pivot_pos(circles):
 
 
 def pick_circle():
+    """
+    set nurbsCircle
+    :return: None
+    """
     sel = pm.ls(sl=1)
     if len(sel) == 1:
         pm.textFieldButtonGrp("pickCircle", text=sel[0].name(), edit=1)
@@ -33,6 +42,11 @@ def pick_circle():
 
 
 def cut_curve(*args):
+    """
+    cut curve function
+    :param args: None
+    :return: None
+    """
     curves = pm.ls(sl=1)
     pm.group(empty=1, name="curve_group")
     for each in curves:
@@ -56,6 +70,11 @@ def cut_curve(*args):
 
 
 def new_curve(surface_):
+    """
+    new curve group
+    :param surface_: nurbsSurface with path animation
+    :return: None
+    """
     points = []
     num = pm.getAttr("extrudedSurfaceShape1.spansV")
     for i in range(0, num + 3):
@@ -68,6 +87,10 @@ def new_curve(surface_):
 
 
 def init_ui():
+    """
+    create ui
+    :return: None
+    """
     name = "Curves cut tool"
     win_n = "_".join(name.split(" "))
     if pm.window(win_n, exists=True):
