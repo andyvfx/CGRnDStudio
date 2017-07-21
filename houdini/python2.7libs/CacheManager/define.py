@@ -25,6 +25,7 @@ CACHE_NODES = [
     { "name":"rop_alembic",     "cat":"Sop",      "parmName":"filename",        "rwtype":["write"]},
     { "name":"tableimport",     "cat":"Sop",      "parmName":"file",            "rwtype":["read"]},
     { "name":"vm_geo_file",     "cat":"Shop",     "parmName":"file",            "rwtype":["read"]},
+    { "name":"ifd",             "cat":"Driver",   "parmName":"vm_picture",      "rwtype":["write"]},
 ]
 
 CHILDNODES_EXCEPTION = [
@@ -68,7 +69,7 @@ NODES_EXCEPTION = [
     "indirectlight",
     "arnold_light",
     "popobject",
-    "shopnet",
+    # "shopnet",
     "solver",
     "testgeometry_pighead",
     "testgeometry_rubbertoy",
